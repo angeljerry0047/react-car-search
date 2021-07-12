@@ -4,17 +4,17 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import Paper from "@material-ui/core/Paper";
 import SearchIcon from "@material-ui/icons/Search";
-function CustomSearchBar(props) {
+import styles from './style';
+const CustomSearchBar = (props) => {
   const { value, onChange, onClick } = props;
   return (
-    <Paper style={{ display: "flex", alignItems: "center" }}>
-      <div style={{ flex: 1, alignItems: "center" }}>
+    <Paper style={styles.container}>
+      <div style={styles.content}>
         <Input
           value={value}
           onChange={onChange}
-          className={"myclass input"}
           disableUnderline={true}
-          style={{ width: "100%", paddingLeft: 15 }}
+          style={styles.input}
           inputProps={{
             placeholder: "Search Car...",
           }}
@@ -22,13 +22,13 @@ function CustomSearchBar(props) {
       </div>
       <IconButton
         onClick={onClick}
-        style={{ width: 50, justifyContent: "center", alignItems: "center" }}
+        style={styles.iconbutton}
       >
         <SearchIcon />
       </IconButton>
     </Paper>
   );
-}
+};
 
 CustomSearchBar.propTypes = {
   value: PropTypes.string.isRequired,
@@ -36,4 +36,3 @@ CustomSearchBar.propTypes = {
   onClick: PropTypes.func,
 };
 export default CustomSearchBar;
-// export default withStyles(styles)(CustomSearchBar);

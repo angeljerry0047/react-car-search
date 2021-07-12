@@ -1,11 +1,11 @@
+import React from "react";
 import { IconButton } from "@material-ui/core";
 import PropTypes from "prop-types";
 import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
-import React from "react";
-function TablePaginationActions(props) {
+const TablePaginationActions = (props) => {
   const { count, page, rowsPerPage, onPageChange } = props;
   const handleFirstPageButtonClick = (event) => {
     onPageChange(event, 0);
@@ -55,7 +55,7 @@ function TablePaginationActions(props) {
       </IconButton>
     </div>
   );
-}
+};
 
 TablePaginationActions.propTypes = {
   count: PropTypes.number.isRequired,

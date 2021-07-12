@@ -19,7 +19,8 @@ import api from "./api";
 import constants from "./constants";
 import { generateUrl } from "./utils";
 import { TablePaginationActions, CustomSearchBar } from "./components";
-function App() {
+import "./App.css";
+const App = () => {
   const [value, setValue] = useState("");
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
@@ -57,7 +58,7 @@ function App() {
   }, [make, model, year]);
   const handleMakeChange = (event) => {
     setMake(event.target.value);
-    setValue("");  
+    setValue("");
   };
   const handleModelChange = (event) => {
     setModel(event.target.value);
@@ -85,7 +86,7 @@ function App() {
     setModel("");
   };
   return (
-    <Container maxWidth="md" style={{ height: "100vh", paddingTop: 50 }}>
+    <Container className="App-container" maxWidth="md">
       <CustomSearchBar
         value={value}
         onChange={changeInput}
@@ -94,7 +95,7 @@ function App() {
       <Typography
         id="demo-simple-select-placeholder-label-label"
         gutterBottom
-        style={{ marginTop: 30 }}
+        className="App-typo Top-distance"
       >
         Make
       </Typography>
@@ -117,7 +118,7 @@ function App() {
       <Typography
         id="demo-simple-select-placeholder-label-label2"
         gutterBottom
-        style={{ marginTop: 30 }}
+        className="App-typo Top-distance"
       >
         Model
       </Typography>
@@ -138,14 +139,14 @@ function App() {
         ))}
       </Select>
       <Typography
-        style={{ marginTop: 30 }}
+        className="App-typo Top-distance"
         id="discrete-slider-always"
         gutterBottom
       >
         Year
       </Typography>
       <Slider
-        style={{ marginTop: 30 }}
+        className="App-typo Top-distance"
         defaultValue={2021}
         value={year}
         aria-labelledby="discrete-slider-always"
@@ -158,7 +159,7 @@ function App() {
       <div>
         {cardata.length !== 0 ? (
           <TableContainer component={Paper}>
-            <Table style={{ minWidth: 650 }} aria-label="simple table">
+            <Table className="App-table" aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell>No</TableCell>
@@ -225,5 +226,5 @@ function App() {
       </div>
     </Container>
   );
-}
+};
 export default App;
